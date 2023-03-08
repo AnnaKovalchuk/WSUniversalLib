@@ -10,9 +10,9 @@ namespace WSUniversalLib
     {
         public int GetQuantityForProduct(int productType, int materialType, int count, float width, float length)
         {
-            //if (productType > 3 || productType < 0 || materialType > 2 || materialType < 0)
-            if (productType > 3 || productType <= 0 || materialType > 2 || materialType <= 0 || width <= 0 || length <= 0 || count < 0)
+            if (productType > 3 || productType <= 0 || materialType > 2 || materialType <= 0 || count < 0 || width <= 0 || length <= 0)
                 return -1;
+            //if (productType > 3 || productType <= 0 || materialType > 2 || materialType <= 0 || width <= 0 || length <= 0 || count < 0)
 
             float product_type = 0;
             switch (productType)
@@ -31,7 +31,6 @@ namespace WSUniversalLib
             float countForOne = width * length * product_type / 100 * (100 + material_type);
 
             return (int)Math.Ceiling(countForOne * count);
-
         }
     }
 }
